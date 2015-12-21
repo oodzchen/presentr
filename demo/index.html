@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>presentr</title>
+	<style>
+    body{
+      font-size: 13px;
+    }
+    *{
+      margin: 0;
+      padding: 0;
+    }
+
+		.wrapper{
+			width: 480px;
+			height: 480px;
+			border: 1px solid #000;
+			font-size: 4em;
+			text-align: center;
+		}
+
+    .fix-pos{
+      position: fixed;
+      left: 0;
+      top: 0;
+      /*margin-left: -100px;*/
+      z-index: 9999;
+    }
+
+    .nav{
+      overflow: hidden;
+      margin: 10px;
+    }
+
+    .nav a{
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      border: 1px solid #000;
+      border-radius: 50px;
+      line-height: 15px;
+      text-align: center;
+      text-decoration: none;
+      color: #333;
+    }
+
+    .nav a.presentr-nav-active{
+      background-color: green;
+      color: white;
+    }
+	</style>
+  <script>
+    window.onerror = function(e){
+      alert(e);
+    };
+  </script>
+	
+</head>
+<body>
+	<div id="box" class="wrapper">
+    <img src="http://ww1.sinaimg.cn/large/7cf03e77jw1ez77mdyxspj20m80dcgne.jpg" data-hash="index" alt="">
+    <img src="http://ww1.sinaimg.cn/large/7cf03e77gw1ez77se8agij20m80dcgqd.jpg" alt="">
+    <img src="http://ww2.sinaimg.cn/large/7cf03e77gw1ez77sow823j20m80dc44v.jpg" alt="">
+    <img src="http://ww3.sinaimg.cn/large/7cf03e77gw1ez77svucm2j20m80dc43p.jpg" alt="">
+    <img src="http://ww4.sinaimg.cn/large/7cf03e77gw1ez77t3u19uj20m80dcwj9.jpg" alt="">
+    <img src="http://ww2.sinaimg.cn/large/7cf03e77gw1ez77taadfbj20m80dcwfq.jpg" alt="">
+    <img src="http://ww2.sinaimg.cn/large/7cf03e77gw1ez77tfa60xj20m80dcaec.jpg" alt="">
+    <img src="http://ww3.sinaimg.cn/large/7cf03e77gw1ez77tkv234j20m80dcwi1.jpg" alt="">
+    <img src="http://ww4.sinaimg.cn/large/7cf03e77gw1ez77tq8gpsj20m80dcdhe.jpg" alt="">
+    <img src="http://ww1.sinaimg.cn/large/7cf03e77gw1ez77txczsgj20m80dcwi1.jpg" data-hash="end" alt="">
+	</div>
+
+  <div id="nav" class="nav">
+    <a href="#0">0</a>
+    <a href="#1">1</a>
+    <a href="#2">2</a>
+    <a href="#3">3</a>
+    <a href="#4">4</a>
+    <a href="#5">5</a>
+    <a href="#6">6</a>
+    <a href="#7">7</a>
+    <a href="#8">8</a>
+    <a href="#9">9</a>
+  </div>
+  <p>
+    <a href="#index">index</a>
+    <a href="#end">end</a>
+    <a href="#0">0</a>
+    <a href="#1">1</a>
+    <a href="#2">2</a>
+    <a href="#3">3</a>
+    <a href="#4">4</a>
+    <a href="#5">5</a>
+    <a href="#6">6</a>
+    <a href="#7">7</a>
+    <a href="#8">8</a>
+    <a href="#9">9</a>
+  </p>
+	<br>
+	<button id="prev">prev</button><button id="next">next</button>
+  <button id="fullScreen" class="fix-pos">FullScreen</button>
+
+  <script src="../build/presentr.js"></script>
+	<script>
+	var $ = !!Function.prototype.bind ? document.querySelector.bind(document) : function(str){
+		return document.querySelectorAll(str)[0];
+	};
+	var box = $('#box');
+	var prev = $('#prev');
+	var next = $('#next');
+  var fullBtn = $('#fullScreen');
+
+  var config = {
+    startIndex: 0,
+    effect: 'slide',
+    navigation: {
+      elements: $('#nav').querySelectorAll('a'),
+      eventType: 'click'
+    },
+    speed: 200,
+    enableHash: true,
+    lock: false,
+    onChangeStart: function(){
+      console.log('onChangeStart', this, arguments);
+    },
+    onChangeEnd: function(){
+      console.log('onChangeEnd', this, arguments);
+    }
+  };
+
+	var presentr = new Presentr(box, config);
+
+  fullBtn.onclick = toggleFullScreen;
+
+  function toggleFullScreen(){
+    if(presentr.isFullScreen()){
+      presentr.cancelFullScreen();
+    }else{
+      presentr.fullScreen();
+    }
+  }
+
+	prev.addEventListener('touchend', prevFn, false);
+  prev.addEventListener('click', prevFn, false);
+
+	next.addEventListener('touchend', nextFn, false);
+  next.addEventListener('click', nextFn, false);
+
+  function prevFn(e){
+    presentr.prev();
+  }
+
+  function nextFn(e){
+    presentr.next();
+  }
+	</script>
+</body>
+</html>

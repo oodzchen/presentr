@@ -1,0 +1,32 @@
+{
+  "name": "presentr.js",
+  "description": "A light weight HTML presentation framework",
+  "main": "dist/presentr.js",
+  "authors": [
+    "Lin Chen"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "presentation",
+    "slide",
+    "swipe",
+    "mobile",
+    "touch",
+    "android",
+    "ios"
+  ],
+  "moduleType": [
+    "globals",
+    "node"
+  ],
+  "homepage": "https://github.com/oodzchen/presentr.js",
+  "ignore": [
+    ".*",
+    "node_modules",
+    "bower_components",
+    "build",
+    "demo",
+    "package.json",
+    "gulpfile"
+  ]
+}

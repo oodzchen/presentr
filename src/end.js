@@ -1,0 +1,2 @@
+  window.Presentr = Presentr;
+})(window);
