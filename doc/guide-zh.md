@@ -28,7 +28,7 @@ Presentr 函数的第二个参数是一个 JavaScript 对象，用于配置各�
   - **lock** String/Boolean *(默认: false)* 阻止手势操作（鼠标/Touch事件）， `'left'` 阻止向左的手势， `'right'` 阻止向右的手势， `true` 和 `'both'` 同时阻止左边和右边的手势.
   - **timingFunction** String *(默认: 'ease')* 同 `transition-timing-function`
   - **effect** String *(默认: 'slide')* 动画效果， `'none'`表示无动画， `'fade'`表示渐隐渐现，`'slide'`表示滑动
-  - **activeClassName** String *(默认: 'presentr-active')* 当前显示元素的所以
+  - **activeClassName** String *(默认: 'presentr-active')* 当前显示元素的类名
   - **navigation** Object 导航配置项
     - **element** Array/Nodelist *(默认: [ ])* HTML DOM 集合
     - **eventType** String *(默认: 'click')* 绑定到导航元素上的事件类型
@@ -74,10 +74,10 @@ var presentr = new Presentr(document.querySelector('#presentr'), {
   - `prev(duration)` 显示上一个
   - `next(duration)` 显示下一个
   - `gotoSlide(index, duration)` 跳到某一个滑块，有动画过度， `duration`为动画时长
-  - `getIndex()` 返回当前滑块的所以
-  - `lock(direction)` 锁定某一方向的手势操作, `direction`的值同配置项中的**lock**一样
+  - `getIndex()` 返回当前滑块的索引
+  - `lock(direction)` 锁定某一方向的手势操作, `direction`的值同[配置项](#配置项)中的**lock**一样
   - `unLock(direction)` 解锁手势操作
   - `fullScreen(zIndex)` 设置全屏, `zIndex`为全屏时容器元素的`z-index`
   - `cancelFullScreen()` 退出全屏
   - `isFullScreen` 返回布尔值, 表示当前是否是全屏状态
-  - `destory()` 回复 HTML 样式，销毁实例化对象
+  - `destory()` 恢复 HTML 样式，销毁实例化对象
