@@ -1,7 +1,7 @@
 /*
  * presentr.js 1.0.0
  * 
- * https://github.com/oodzchen/presentr.js#readme
+ * https://github.com/oodzchen/presentr.js
  * Copyright 2015, Lin Chen
  *
  * MIT License
