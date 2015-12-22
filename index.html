@@ -1,0 +1,222 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Presentr.js by oodzchen</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Presentr.js</h1>
+        <p>A light weight HTML presentation framework</p>
+
+        <p class="view"><a href="https://github.com/oodzchen/presentr.js">View the Project on GitHub <small>oodzchen/presentr.js</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/oodzchen/presentr.js/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/oodzchen/presentr.js/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/oodzchen/presentr.js">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h2>
+<a id="distbuild" class="anchor" href="#distbuild" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dist/Build</h2>
+
+<p>You should use files under <code>dist/</code> folder for productions, files under <code>build/</code> folder is only for developement purpose.</p>
+
+<h3>
+<a id="build" class="anchor" href="#build" aria-hidden="true"><span class="octicon octicon-link"></span></a>Build</h3>
+
+<p>Be sure you have install the <code>gulp-cli</code> at first</p>
+
+<div class="highlight highlight-source-shell"><pre>$ npm install --global gulp</pre></div>
+
+<p>install all dependencies:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ npm install</pre></div>
+
+<p>build the developement version of Presentr.js</p>
+
+<div class="highlight highlight-source-shell"><pre>$ gulp build</pre></div>
+
+<p>The result is available in <code>build/</code> folder.</p>
+
+<h3>
+<a id="release" class="anchor" href="#release" aria-hidden="true"><span class="octicon octicon-link"></span></a>Release</h3>
+
+<p>After you have made build:</p>
+
+<div class="highlight highlight-source-shell"><pre>$ gulp dist</pre></div>
+
+<p>Distributalble version will available in <code>dist/</code> folder.</p>
+
+<h2>
+<a id="run-the-demo" class="anchor" href="#run-the-demo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Run the demo</h2>
+
+<p>You can run the demo if you have build the files</p>
+
+<pre><code>$ gulp server
+</code></pre>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>The HTML structure should be:</p>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>presentr<span class="pl-pds">"</span></span>&gt;
+  &lt;<span class="pl-ent">div</span>&gt;&lt;/<span class="pl-ent">div</span>&gt;
+  &lt;<span class="pl-ent">div</span>&gt;&lt;/<span class="pl-ent">div</span>&gt;
+  &lt;<span class="pl-ent">div</span>&gt;&lt;/<span class="pl-ent">div</span>&gt;
+  &lt;<span class="pl-ent">div</span>&gt;&lt;/<span class="pl-ent">div</span>&gt;
+  &lt;<span class="pl-ent">div</span>&gt;&lt;/<span class="pl-ent">div</span>&gt;
+&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+
+<p>Use Presentr like this:</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> presentr <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Presentr</span>(<span class="pl-smi">document</span>.<span class="pl-en">querySelector</span>(<span class="pl-s"><span class="pl-pds">'</span>#presentr<span class="pl-pds">'</span></span>));</pre></div>
+
+<h2>
+<a id="config-options" class="anchor" href="#config-options" aria-hidden="true"><span class="octicon octicon-link"></span></a>Config Options</h2>
+
+<p>The second parameter of the Presentr function is an object for configs:</p>
+
+<ul>
+<li>
+<strong>width</strong> Number <em>(default: <code>offsetWidth</code> of container element)</em> width of the presentation</li>
+<li>
+<strong>height</strong> Number <em>(default: <code>offsetHeight</code> of container element)</em> height of the presentation</li>
+<li>
+<strong>startIndex</strong> Number <em>(default: 0)</em> the index of the slide show at start</li>
+<li>
+<strong>cycle</strong> Boolean <em>(default: false)</em> whether to cycle the slides</li>
+<li>
+<strong>speed</strong> Number <em>(default: 300)</em> duration of the change animation</li>
+<li>
+<strong>lock</strong> String/Boolean <em>(default: false)</em> prevent the guesture on slides, <code>'left'</code> will prevent left guesture, <code>'right'</code> will prevent right guesture, <code>true</code> and <code>'both'</code> will prevent both direction.</li>
+<li>
+<strong>timingFunction</strong> String <em>(default: 'ease')</em> same as <code>transition-timing-function</code>
+</li>
+<li>
+<strong>effect</strong> String <em>(default: 'slide')</em> animation effects, <code>'none'</code> will slide with no animation, <code>'fade'</code> will change <code>opacity</code> value in animation, <code>'slide'</code> will change offset value in animation</li>
+<li>
+<strong>activeClassName</strong> String <em>(default: 'presentr-active')</em> class name of the active slide</li>
+<li>
+<strong>navigation</strong> Object config of the navigation
+
+<ul>
+<li>
+<strong>element</strong> Array/Nodelist <em>(default: [ ])</em> HTML DOM collection</li>
+<li>
+<strong>eventType</strong> String <em>(default: 'click')</em> name of the event bind on the navigation items</li>
+<li>
+<strong>activeClassName</strong> String <em>(default: 'presentr-nav-active')</em> class name of the active navigation item</li>
+</ul>
+</li>
+<li>
+<strong>enableHash</strong> Boolean <em>(default: true)</em> whether change the <code>location.hash</code> when change slides</li>
+<li>
+<strong>actionArea</strong> HTMLElement <em>(default: document)</em> guesture area</li>
+<li>
+<strong>onChangeStart</strong> Function run before animation start</li>
+<li>
+<strong>onChangeEnd</strong> Function run after animation end</li>
+</ul>
+
+<h3>
+<a id="example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h3>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> presentr <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Presentr</span>(<span class="pl-smi">document</span>.<span class="pl-en">querySelector</span>(<span class="pl-s"><span class="pl-pds">'</span>#presentr<span class="pl-pds">'</span></span>), {
+  width<span class="pl-k">:</span> <span class="pl-c1">1000</span>,
+  height<span class="pl-k">:</span> <span class="pl-c1">800</span>,
+  startIndex<span class="pl-k">:</span> <span class="pl-c1">0</span>,
+  cycle<span class="pl-k">:</span> <span class="pl-c1">true</span>,
+  speed<span class="pl-k">:</span> <span class="pl-c1">400</span>,
+  lock<span class="pl-k">:</span> <span class="pl-c1">false</span>,
+  timingFunction<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>ease<span class="pl-pds">'</span></span>,
+  effect<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>fade<span class="pl-pds">'</span></span>,
+  activeClassName<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>active<span class="pl-pds">'</span></span>,
+  navigation<span class="pl-k">:</span> {
+    elements<span class="pl-k">:</span> <span class="pl-smi">document</span>.<span class="pl-en">querySelectorAll</span>(<span class="pl-s"><span class="pl-pds">'</span>#navigation&gt;li<span class="pl-pds">'</span></span>),
+    eventType<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>click<span class="pl-pds">'</span></span>,
+    activeClassName<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>nav-active<span class="pl-pds">'</span></span>
+  },
+  enableHash<span class="pl-k">:</span> <span class="pl-c1">true</span>,
+  actionArea<span class="pl-k">:</span> <span class="pl-c1">document</span>,
+  <span class="pl-en">onChangeStart</span><span class="pl-k">:</span> <span class="pl-k">function</span>(<span class="pl-smi">targetIndex</span>, <span class="pl-smi">prevIndex</span>){
+    <span class="pl-en">console</span>.<span class="pl-c1">log</span>(targetIndex, prevIndex);
+  },
+  <span class="pl-en">onChangeEnd</span><span class="pl-k">:</span> <span class="pl-k">function</span>(<span class="pl-smi">index</span>){
+    <span class="pl-en">console</span>.<span class="pl-c1">log</span>(index);
+  }
+});</pre></div>
+
+<h2>
+<a id="api" class="anchor" href="#api" aria-hidden="true"><span class="octicon octicon-link"></span></a>API</h2>
+
+<ul>
+<li>
+<code>slides</code> an array contains all of the slide elements</li>
+<li>
+<code>options</code> reference of the config object</li>
+<li>
+<code>show(index)</code> show one of the slide with no animation</li>
+<li>
+<code>prev(duration)</code> go to prev</li>
+<li>
+<code>next(duration)</code> go to next</li>
+<li>
+<code>gotoSlide(index, duration)</code> go to one of the slide with effects, <code>duration</code> is the duration of animation</li>
+<li>
+<code>getIndex()</code> return the index of active slide</li>
+<li>
+<code>lock(direction)</code> lock the guesture on slides, the <code>direction</code> value is same as <strong>lock</strong> in the config object</li>
+<li>
+<code>unLock(direction)</code> unlock the guesture prevention</li>
+<li>
+<code>fullScreen(zIndex)</code> set presentation size as the size of the viewport, <code>zIndex</code> will set the <code>z-index</code> property of container element</li>
+<li>
+<code>cancelFullScreen()</code> quit the full screen state</li>
+<li>
+<code>isFullScreen</code> return boolean value, indicate whether the presentation is on full screen state</li>
+<li>
+<code>destory()</code> recovery the DOM styles and destory the instance</li>
+</ul>
+
+<h2>
+<a id="browser-support" class="anchor" href="#browser-support" aria-hidden="true"><span class="octicon octicon-link"></span></a>Browser Support</h2>
+
+<p>Compatible with most of the modern browsers (Chrome, Firefox, Opera, IE10+), include the moblie platforms.</p>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>Copyright (c) 2015 Lin Chen. Licensed under <a href="https://opensource.org/licenses/MIT">The MIT License (MIT)</a></p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/oodzchen">oodzchen</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-43859931-3");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
