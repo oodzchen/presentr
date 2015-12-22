@@ -31,7 +31,7 @@ var Presentr = function(element, config) {
   var defaults = {
     width: container.offsetWidth,
     height: container.offsetHeight,
-    startIndex: 1,
+    startIndex: 0,
     cycle: false,
     speed: 300,
     lock: false, // true/'both', 'left', 'right'

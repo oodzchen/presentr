@@ -43,7 +43,7 @@
     var defaults = {
       width: container.offsetWidth,
       height: container.offsetHeight,
-      startIndex: 1,
+      startIndex: 0,
       cycle: false,
       speed: 300,
       lock: false, // true/'both', 'left', 'right'
@@ -60,6 +60,8 @@
       onChangeStart: function(targetIndex, prevIndex){},
       onChangeEnd: function(index){}
     };
+  
+    var options = utils.extend(defaults, config, true);
   
     var transition = utils.getPrefixedCSS('transition');
     var transitions = {
