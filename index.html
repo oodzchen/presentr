@@ -11,6 +11,46 @@
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <script src="./javascripts/presentr.js"></script>
+    <style>
+      .container{
+        position: relative;
+      }
+      .container>.box{
+        width: 100%;
+        height: 300px;
+      }
+      .box>div>div{
+        position: relative;
+        text-align: center;
+        color: #fff;
+      }
+      .box .tips{
+        position: absolute;
+        width: 100%;
+        margin-top: 100px;
+        padding: 20px 0;
+        background: -webkit-radial-gradient(rgba(0, 0, 0, 0.5) 5%, transparent);
+        background: -moz-radial-gradient(rgba(0, 0, 0, 0.5) 5%, transparent);
+        background: -ms-radial-gradient(rgba(0, 0, 0, 0.5) 5%, transparent);
+        background: -o-radial-gradient(rgba(0, 0, 0, 0.5) 5%, transparent);
+        background: radial-gradient(rgba(0, 0, 0, 0.5) 5%, transparent);
+        color: #fff;
+        text-align: center;
+      }
+      .box .button{
+        display: inline-block;
+        padding: 0 5px;
+        margin: 5px;
+        background-color: transparent;
+        border: 1px solid #fff;
+        border-radius: 3px;
+        color: #fff;
+        line-height: 30px;
+        text-align: center;
+        cursor: pointer;
+      }
+    </style>
   </head>
   <body>
     <div class="wrapper">
@@ -28,6 +68,78 @@
         </ul>
       </header>
       <section>
+      <div id="demo">
+        <div class="container">
+          <div id="box" class="box">
+            <div data-hash="index">
+              <h3 class="tips">Swipe left or right to continue</h3>
+              <img src="http://ww1.sinaimg.cn/large/7cf03e77jw1ez77mdyxspj20m80dcgne.jpg" alt="">
+            </div>
+            <div>
+              <div class="tips">
+                <button class="button" id="full-screen">Full Screen</button>
+              </div>
+              <img src="http://ww1.sinaimg.cn/large/7cf03e77gw1ez77se8agij20m80dcgqd.jpg" alt="">
+            </div>
+            <div>
+              <img src="http://ww2.sinaimg.cn/large/7cf03e77gw1ez77sow823j20m80dc44v.jpg" alt="">
+            </div>
+            <div>
+              <img src="http://ww3.sinaimg.cn/large/7cf03e77gw1ez77svucm2j20m80dc43p.jpg" alt="">
+            </div>
+            <div>
+              <img src="http://ww4.sinaimg.cn/large/7cf03e77gw1ez77t3u19uj20m80dcwj9.jpg" alt="">
+            </div>
+            <div>
+              <img src="http://ww2.sinaimg.cn/large/7cf03e77gw1ez77taadfbj20m80dcwfq.jpg" alt="">
+            </div>
+            <div>
+              <img src="http://ww2.sinaimg.cn/large/7cf03e77gw1ez77tfa60xj20m80dcaec.jpg" alt="">
+            </div>
+            <div>
+              <img src="http://ww3.sinaimg.cn/large/7cf03e77gw1ez77tkv234j20m80dcwi1.jpg" alt="">
+            </div>
+            <div>
+              <img src="http://ww4.sinaimg.cn/large/7cf03e77gw1ez77tq8gpsj20m80dcdhe.jpg" alt="">
+            </div>
+            <div data-hash="end">
+              <img src="http://ww1.sinaimg.cn/large/7cf03e77gw1ez77txczsgj20m80dcwi1.jpg" alt="">
+            </div>
+          </div>
+        </div>
+        <p>
+          Hash Change: 
+          <a href="#index">index</a>
+          <a href="#end">end</a>
+          <a href="#0">0</a>
+          <a href="#1">1</a>
+          <a href="#2">2</a>
+          <a href="#3">3</a>
+          <a href="#4">4</a>
+          <a href="#5">5</a>
+          <a href="#6">6</a>
+          <a href="#7">7</a>
+          <a href="#8">8</a>
+          <a href="#9">9</a>
+        </p>
+      </div>
+
+      <script>
+        var presentr = new Presentr(document.querySelector('#box'));
+        var fullScreen = document.querySelector('#full-screen');
+
+        fullScreen.onclick = function(){
+          if(presentr.isFullScreen()){
+            presentr.cancelFullScreen();
+            this.innerHTML = 'Full Screen';
+          }else{
+            presentr.fullScreen();
+            this.innerHTML = 'Cancel Full Screen';
+          }
+        }
+
+      </script>
+
         <h2>
 <a id="distbuild" class="anchor" href="#distbuild" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dist/Build</h2>
 
@@ -53,7 +165,7 @@
 <h3>
 <a id="release" class="anchor" href="#release" aria-hidden="true"><span class="octicon octicon-link"></span></a>Release</h3>
 
-<p>After you have made build:</p>
+<p>After you have made; build:</p>
 
 <div class="highlight highlight-source-shell"><pre>$ gulp dist</pre></div>
 
@@ -70,7 +182,7 @@
 <h2>
 <a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
 
-<p>The HTML structure should be:</p>
+<p>The HTML structure should; be:</p>
 
 <div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>presentr<span class="pl-pds">"</span></span>&gt;
   &lt;<span class="pl-ent">div</span>&gt;&lt;/<span class="pl-ent">div</span>&gt;
