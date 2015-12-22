@@ -41,9 +41,9 @@
     var MINIMUMSPEED = 1;
   
     var defaults = {
-      width: 0,
-      height: 0,
-      startIndex: 3,
+      width: container.offsetWidth,
+      height: container.offsetHeight,
+      startIndex: 0,
       cycle: false,
       speed: 300,
       lock: false, // true/'both', 'left', 'right'
@@ -62,12 +62,6 @@
     };
   
     var options = utils.extend(defaults, config, true);
-    if (!options.width) {
-      options.width = container.offsetWidth;
-    }
-    if (!options.height) {
-      options.height = container.offsetHeight;
-    }
   
     var transition = utils.getPrefixedCSS('transition');
     var transitions = {
